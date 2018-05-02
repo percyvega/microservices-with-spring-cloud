@@ -1,13 +1,43 @@
 package com.percyvega.mwsc;
 
-import lombok.extern.log4j.Log4j2;
+import com.percyvega.mwsc.model.Greeting;
+import com.percyvega.mwsc.model.Language;
+import com.percyvega.mwsc.repository.GreetingRepository;
+import java.util.Arrays;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-@Log4j2
+@SpringBootApplication
 public class Application {
 
-  public static void main(String[] args) {
-    String arg = args.length > 0 ? args[0] : "World";
-    log.info("Hello, {}!", arg);
+  private final GreetingRepository repository;
+
+  @Autowired
+  public Application(GreetingRepository repository) {
+    this.repository = repository;
   }
 
+  public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+  }
+
+  @Bean
+  CommandLineRunner init(GreetingRepository repository) {
+    return (evt) -> Arrays.asList(
+        new Greeting("Hello!", Language.English),
+        new Greeting("Hi!", Language.English),
+        new Greeting("Hey!", Language.English),
+        new Greeting("Good morning!", Language.English),
+        new Greeting("Hola!", Language.Spanish),
+        new Greeting("Buenas noches!", Language.Spanish),
+        new Greeting("Bonjour!", Language.French),
+        new Greeting("Bonsoir!", Language.French),
+        new Greeting("Salut!", Language.French))
+        .forEach(a -> {
+          repository.save(a);
+        });
+  }
 }
