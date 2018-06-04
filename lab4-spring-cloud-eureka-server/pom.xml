@@ -4,22 +4,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.percyvega</groupId>
   <artifactId>lab4-spring-cloud-eureka-server</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.2.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <artifactId>microservices-with-spring-cloud</artifactId>
+    <groupId>com.percyvega</groupId>
+    <version>1.0-SNAPSHOT</version>
   </parent>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.8</java.version>
-  </properties>
 
   <!-- We can't have two parent POMs, so use DependencyManagement
   to show Maven where the Spring Cloud dependencies are. -->
@@ -28,7 +20,7 @@
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Dalston.RELEASE</version>
+        <version>Finchley.M8</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -37,8 +29,20 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <!-- Allow for automatic restarts when classpath contents change. -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-eureka-server</artifactId>
+      <version>RELEASE</version>
     </dependency>
   </dependencies>
 

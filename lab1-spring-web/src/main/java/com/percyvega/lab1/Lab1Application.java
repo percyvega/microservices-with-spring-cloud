@@ -16,14 +16,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class Lab1Application {
 
   private final GreetingRepository greetingRepository;
   private final SpeakerRepository speakerRepository;
   private final ClassroomRepository classroomRepository;
 
   @Autowired
-  public Application(GreetingRepository greetingRepository, SpeakerRepository speakerRepository,
+  public Lab1Application(GreetingRepository greetingRepository, SpeakerRepository speakerRepository,
       ClassroomRepository classroomRepository) {
     this.greetingRepository = greetingRepository;
     this.speakerRepository = speakerRepository;
@@ -31,7 +31,7 @@ public class Application {
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
+    SpringApplication.run(Lab1Application.class, args);
   }
 
   @PostConstruct
