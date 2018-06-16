@@ -5,3 +5,9 @@ eureka:
       defaultZone: http://localhost:8003/eureka/
 server:
   port: 8004
+
+subjectServiceName: lab4-spring-web-subject
+verbServiceName: lab4-spring-web-verb
+articleServiceName: lab4-spring-web-article
+adjectiveServiceName: lab4-spring-web-adjective
+nounServiceName: lab4-spring-web-noun

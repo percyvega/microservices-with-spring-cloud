@@ -3,6 +3,7 @@ package com.percyvega.lab4sentence.controller;
 import java.net.URI;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,19 +17,30 @@ public class SentenceController {
   @Autowired
   DiscoveryClient discoveryClient;
 
+  @Value("${subjectServiceName}")
+  String subjectServiceName;
+  @Value("${verbServiceName}")
+  String verbServiceName;
+  @Value("${articleServiceName}")
+  String articleServiceName;
+  @Value("${adjectiveServiceName}")
+  String adjectiveServiceName;
+  @Value("${nounServiceName}")
+  String nounServiceName;
+
   private RestTemplate restTemplate = new RestTemplate();
 
   @GetMapping
   public @ResponseBody String getSentence() {
     return
-        getWord("lab4-spring-web-subject") + " " +
-        getWord("lab4-spring-web-verb") + " " +
-        getWord("lab4-spring-web-article") + " " +
-        getWord("lab4-spring-web-adjective") + " " +
-        getWord("lab4-spring-web-noun");
+        getWordFrom(subjectServiceName) + " " +
+        getWordFrom(verbServiceName) + " " +
+        getWordFrom(articleServiceName) + " " +
+        getWordFrom(adjectiveServiceName) + " " +
+        getWordFrom(nounServiceName);
   }
 
-  private String getWord(String serviceName) {
+  private String getWordFrom(String serviceName) {
     List<ServiceInstance> list = discoveryClient.getInstances(serviceName);
 
     if(list != null && list.size() > 0) {
