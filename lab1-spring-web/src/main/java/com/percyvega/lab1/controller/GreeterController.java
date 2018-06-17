@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GreeterController {
 
   @GetMapping("/greeterController")
-  public String greetController(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+  public String greetController(
+      @RequestParam(name = "name", required = false, defaultValue = "World") String name,
+      Model model) {
     model.addAttribute("name", name);
     return "hello";
   }

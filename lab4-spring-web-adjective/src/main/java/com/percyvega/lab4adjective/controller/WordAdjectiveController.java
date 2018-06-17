@@ -15,7 +15,8 @@ public class WordAdjectiveController {
   private Random random = new Random();
 
   @GetMapping
-  public @ResponseBody String getWord() {
+  public @ResponseBody
+  String getWord() {
     String[] wordArray = words.split(",");
     return wordArray[random.nextInt(wordArray.length)];
   }

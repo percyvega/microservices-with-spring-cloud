@@ -19,7 +19,8 @@ public class GreetingService {
   private Random random = new Random();
 
   @Autowired
-  public GreetingService(GreetingRepository greetingRepository, SpeakerRepository speakerRepository) {
+  public GreetingService(GreetingRepository greetingRepository,
+      SpeakerRepository speakerRepository) {
     this.greetingRepository = greetingRepository;
     this.speakerRepository = speakerRepository;
   }

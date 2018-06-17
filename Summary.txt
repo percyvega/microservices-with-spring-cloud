@@ -1,0 +1,5 @@
+bootstrap.yml is loaded before application.yml.
+This is in case there are properties required for configuring the application.
+
+@EnableEurekaClient registers itself (via its name) with its defaultZone (a Eureka Server).
+@EnableEurekaServers is where all the Eureka client URLs are stored for later discovery by another client.

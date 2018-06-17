@@ -2,3 +2,8 @@
 spring:
   application:
     name: lab4-spring-web-verb
+  cloud:
+    config:
+      uri: http://localhost:8001
+  profiles:
+    active: web-verb

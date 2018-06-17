@@ -19,6 +19,7 @@ public class GreetingServiceTest {
 
   @Test
   public void getList() {
-    assertThat(greetingService.getGreetings()).containsAnyOf(new Greeting(1L, "Hello!", Language.English));
+    assertThat(greetingService.getGreetings())
+        .containsAnyOf(new Greeting(1L, "Hello!", Language.English));
   }
 }

@@ -1,9 +1,9 @@
 package com.percyvega.lab1.controller;
 
-import com.percyvega.lab1.service.GreetingService;
 import com.percyvega.lab1.model.Greeting;
 import com.percyvega.lab1.model.Language;
 import com.percyvega.lab1.model.Speaker;
+import com.percyvega.lab1.service.GreetingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,12 +27,12 @@ public class GreetingController {
 
   @GetMapping(value = "/greetings")
   public List<Greeting> greetings() {
-      return greetingService.getGreetings();
+    return greetingService.getGreetings();
   }
 
   @GetMapping(value = "/greetings/{id}")
   public Greeting greetingById(@PathVariable(name = "id") String id) {
-      return greetingService.getGreeting(Long.valueOf(id));
+    return greetingService.getGreeting(Long.valueOf(id));
   }
 
   @GetMapping(value = "/greetings/language/{language}")

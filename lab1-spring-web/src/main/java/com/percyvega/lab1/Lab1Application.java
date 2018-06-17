@@ -1,12 +1,12 @@
 package com.percyvega.lab1;
 
-import com.percyvega.lab1.repository.ClassroomRepository;
-import com.percyvega.lab1.repository.GreetingRepository;
-import com.percyvega.lab1.repository.SpeakerRepository;
 import com.percyvega.lab1.model.Classroom;
 import com.percyvega.lab1.model.Greeting;
 import com.percyvega.lab1.model.Language;
 import com.percyvega.lab1.model.Speaker;
+import com.percyvega.lab1.repository.ClassroomRepository;
+import com.percyvega.lab1.repository.GreetingRepository;
+import com.percyvega.lab1.repository.SpeakerRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

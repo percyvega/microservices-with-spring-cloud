@@ -31,22 +31,23 @@ public class SentenceController {
   private RestTemplate restTemplate = new RestTemplate();
 
   @GetMapping
-  public @ResponseBody String getSentence() {
+  public @ResponseBody
+  String getSentence() {
     return
         getWordFrom(subjectServiceName) + " " +
-        getWordFrom(verbServiceName) + " " +
-        getWordFrom(articleServiceName) + " " +
-        getWordFrom(adjectiveServiceName) + " " +
-        getWordFrom(nounServiceName);
+            getWordFrom(verbServiceName) + " " +
+            getWordFrom(articleServiceName) + " " +
+            getWordFrom(adjectiveServiceName) + " " +
+            getWordFrom(nounServiceName);
   }
 
   private String getWordFrom(String serviceName) {
     List<ServiceInstance> list = discoveryClient.getInstances(serviceName);
 
-    if(list != null && list.size() > 0) {
+    if (list != null && list.size() > 0) {
       URI uri = list.get(0).getUri();
 
-      if(uri != null) {
+      if (uri != null) {
         return restTemplate.getForObject(uri, String.class);
       }
     }
