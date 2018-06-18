@@ -10,7 +10,7 @@ public class LuckyWordController {
   @Value("${lucky-word}")
   private String luckyWord;
 
-  @GetMapping("/lucky-word")
+  @GetMapping
   public String showLuckyWord() {
     return "The lucky word is: " + luckyWord;
   }
