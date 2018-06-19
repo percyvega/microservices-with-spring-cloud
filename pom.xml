@@ -45,7 +45,7 @@
   </build>
 
   <!-- We can't have two parent POMs, so use DependencyManagement
-  to show Maven where the Spring Cloud dependencies are. -->
+to show Maven where the Spring Cloud dependencies are. -->
   <dependencyManagement>
     <dependencies>
       <dependency>

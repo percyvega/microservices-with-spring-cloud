@@ -13,6 +13,20 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
+  <!-- We can't have two parent POMs, so use DependencyManagement
+to show Maven where the Spring Cloud dependencies are. -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Finchley.M8</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.cloud</groupId>

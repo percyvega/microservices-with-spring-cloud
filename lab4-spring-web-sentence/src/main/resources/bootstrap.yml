@@ -1,5 +1,7 @@
 ---
 spring:
+  application:
+    name: lab4-spring-web-sentence
   cloud:
     config:
       uri: http://localhost:8001
