@@ -21,12 +21,8 @@
     <module>lab3-spring-cloud-config-server</module>
     <module>lab3-spring-cloud-config-client</module>
     <module>lab4-spring-cloud-eureka-server</module>
-    <module>lab4-spring-web-adjective</module>
-    <module>lab4-spring-web-article</module>
-    <module>lab4-spring-web-noun</module>
     <module>lab4-spring-web-sentence</module>
-    <module>lab4-spring-web-subject</module>
-    <module>lab4-spring-web-verb</module>
+    <module>lab4-spring-web-word</module>
   </modules>
 
   <properties>

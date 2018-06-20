@@ -1,0 +1,35 @@
+---
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8001
+
+---
+spring:
+  profiles: web-adjective
+  application:
+    name: lab4-spring-web-adjective
+
+---
+spring:
+  profiles: web-article
+  application:
+    name: lab4-spring-web-article
+
+---
+spring:
+  profiles: web-noun
+  application:
+    name: lab4-spring-web-noun
+
+---
+spring:
+  profiles: web-subject
+  application:
+    name: lab4-spring-web-subject
+
+---
+spring:
+  profiles: web-verb
+  application:
+    name: lab4-spring-web-verb

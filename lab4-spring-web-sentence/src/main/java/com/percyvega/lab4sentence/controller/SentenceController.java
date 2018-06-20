@@ -31,8 +31,7 @@ public class SentenceController {
   private RestTemplate restTemplate = new RestTemplate();
 
   @GetMapping
-  public @ResponseBody
-  String getSentence() {
+  public @ResponseBody String getSentence() {
     return
         getWordFrom(subjectServiceName) + " " +
             getWordFrom(verbServiceName) + " " +
