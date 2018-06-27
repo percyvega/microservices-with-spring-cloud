@@ -1,7 +1,47 @@
-bootstrap.yml is loaded before application.yml.
-This is in case there are properties required for configuring the application.
+Spring Cloud Summary
 
-@EnableEurekaClient registers itself (via its name) with its defaultZone (a Eureka Server).
-@EnableEurekaServers is where all the Eureka client URLs are stored for later discovery by another client.
 
-Ribbon: client-side load balancer (allows a client to select a server based on some criteria)
+bootstrap.yml (where the config server points to a Git repo) is loaded before application.yml.
+This helps when there are properties required for configuring the application.
+
+
+@EnableConfigServer
+  This application is where other applications obtain their properties.
+  Its application.yml contains spring.cloud.config.server.git.uri pointing to a Git repo path.
+  Dependency: spring-cloud-config-server
+
+Config Client
+  This application will obtain its properties from a config server.
+  Its bootstrap.yml contains
+    spring.application.name
+    spring.cloud.config.uri
+    spring.profiles.active
+  Dependency: spring-cloud-starter-config
+
+
+@EnableEurekaServer
+  This where all the Eureka client URLs are stored for later discovery by other clients.
+  Dependency: spring-cloud-starter-eureka-server
+
+@EnableEurekaClient
+  This application registers itself (via its name) with its defaultZone (a Eureka Server).
+  Its bootstrap.yml contains
+    spring.application.name
+    spring.cloud.config.uri
+  Dependency: spring-cloud-starter-eureka
+
+Eureka user
+  Not necessarily an @EnableEurekaClient. This application just uses the Server to find the Clients.
+  Its bootstrap.yml contains
+    spring.application.name
+    spring.cloud.config.uri
+    spring.profiles.active
+  Dependency: spring-cloud-starter-eureka
+
+
+Ribbon
+  Client-side load balancer (allows a client to select a regional server based on some criteria)
+
+
+Feign
+  Allows you to write calls to REST services (alternative to RestTemplate) using only interfaces.
