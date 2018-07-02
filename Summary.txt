@@ -38,10 +38,17 @@ Eureka user
     spring.profiles.active
   Dependency: spring-cloud-starter-eureka
 
-
 Ribbon
   Client-side load balancer (allows a client to select a regional server based on some criteria)
+  Its bootstrap.yml contains:
+    eureka.instance.instanceId
+  Dependency: spring-cloud-starter-ribbon
 
-
-Feign
+@EnableFeignClients
   Allows you to write calls to REST services (alternative to RestTemplate) using only interfaces.
+  e.g. @FeignClient("VERB") public interface VerbClient
+  Dependency: spring-cloud-starter-feign
+
+Hystrix
+  Provides an easy way to add circuit breakers to your applications, so that they are protected against cascade failures.
+  Dashboard and Turbine help with monitoring circuit breakers.
